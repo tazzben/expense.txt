@@ -390,6 +390,7 @@ def main():
 		saveCSV(savefile,results['lines'])
 	elif len(savefile)>0:
 		WriteFile(savefile,results['lines'])
+		print 'File saved to: ' + savefile
 	else:	
 		PrintList(results['lines'])
 		print ""

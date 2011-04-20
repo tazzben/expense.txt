@@ -1,0 +1,102 @@
+h1. Expense.txt
+
+Expense.txt allows you to track and analyze your expenses using plain text files. 
+
+h2. Options:
+
+|-f "&lt;File Path&gt;", --file="&lt;File Path&gt;"|Define the active file to analyze|
+|-s "&lt;File Path&gt;", --save="&lt;File Path&gt;"|Save output to a file|
+|-i "&lt;File Path&gt;", --import="&lt;File Path&gt;"|Define a file to import into the active file|
+|-a '4-19-11:Expense for work $100 @category +project', --add='4-19-11:Expense for work $100 @category +project'|Add a line to the active file|
+
+h2. Examples:
+
+The following command defines the active file and displays all expenses in the project "+project"
+
+<pre>
+./expense -f "~/expenses.txt" +project
+</pre>
+
+h3. Example Output:
+
+<pre>
+4-19-2011:New Server @warehouse $2200 +project
+4-25-2011:Printing expenses $1,535 +project
+Lunch with client +project $50
+
+Total expenses: $3,785.00
+</pre>
+
+Once I've defined the active file I don't have to specify it unless I want to change that setting.  In this next command I want to see items both in the project "+project" and in the category "@warehouse".
+
+<pre>
+./expense +project and @warehouse
+</pre>
+
+h3. Example Output:
+
+<pre>
+4-19-2011:New Server @warehouse $2200 +project
+
+Total expenses: $2,200.00
+</pre>
+
+This time I want see any expense that is in the category "@bob" or in the project "+project".  I also want to save the output to a text file instead of displaying it to the screen.
+
+<pre>
+./expense +project or @bob --save="results.txt"
+</pre>
+
+h3. Example Contents of results.txt:
+
+<pre>
+4-25-2011: Expense caused by Bob @bob $600
+4-19-2011:New Server @warehouse $2200 +project
+4-25-2011:Printing expenses $1,535 +project
+Lunch with client +project $50
+</pre>
+
+This time I want any expense in the project "+project" that happened after 4/20.  I also want to save the output to a csv instead of displaying it to the screen.
+
+<pre>
+./expense +project and ">4-20-2011" --save="results.csv"
+</pre>
+
+h3. Example Contents of results.csv:
+
+<pre>
+Date,Price,Project,Category,Note
+2011-04-25,"1,535",project,,Printing expenses
+</pre>
+
+In this example I want to import the results.csv (you can also import plain text files) into my active file and display any item greater than $1000.
+
+<pre>
+./expense ">1000" --import="results.csv"
+</pre>
+
+<pre>
+4-19-2011:New Server @warehouse $2200 +project
+4-25-2011:Printing expenses $1,535 +project
+2011-04-25: Printing expenses $1,535 +project
+
+Total expenses: $5,270.00
+</pre>
+
+This time I simply want to add an expense to my active file:
+
+<pre>
+./expense --add='4/20/2011: My new expense $55 @electronics +personal'
+</pre>
+
+h2. Installing:
+
+Installing expense.txt is pretty easy. Because Macs and Linux already include Python, all you need to do is download the expense.txt source, decompress it, and move it wherever you want. Of course, if you use expense.txt a lot you might want to "add your installation location to your PATH variable":http://kb.wbpsystems.com/index.php/article/setting-your-path-variable.
+
+On Windows, you need to download "Python 2.x":http://www.python.org/download/ and install it before installing expense.txt.  Or install the version of expense.txt containing Python. 
+
+h2. Download:
+
+Windows (Zip file, Contains Python):"https://github.com/tazzben/expense.txt/blob/master/dist/expense_dist.zip":https://github.com/tazzben/expense.txt/blob/master/dist/expense_dist.zip?raw=true
+Windows (Zip file): "https://github.com/tazzben/expense.txt/blob/master/dist/expense.zip":https://github.com/tazzben/expense.txt/blob/master/dist/expense.zip?raw=true
+Max/Linux/Etc (tar.gz file): "https://github.com/tazzben/expense.txt/blob/master/dist/expense.tar.gz":https://github.com/tazzben/expense.txt/blob/master/dist/expense.tar.gz?raw=true
