@@ -99,4 +99,4 @@ h2. Download:
 
 Windows (Zip file, Contains Python):"https://github.com/tazzben/expense.txt/blob/master/dist/expense_dist.zip":https://github.com/tazzben/expense.txt/blob/master/dist/expense_dist.zip?raw=true
 Windows (Zip file): "https://github.com/tazzben/expense.txt/blob/master/dist/expense.zip":https://github.com/tazzben/expense.txt/blob/master/dist/expense.zip?raw=true
-Max/Linux/Etc (tar.gz file): "https://github.com/tazzben/expense.txt/blob/master/dist/expense.tar.gz":https://github.com/tazzben/expense.txt/blob/master/dist/expense.tar.gz?raw=true
+Mac/Linux/Etc (tar.gz file): "https://github.com/tazzben/expense.txt/blob/master/dist/expense.tar.gz":https://github.com/tazzben/expense.txt/blob/master/dist/expense.tar.gz?raw=true
