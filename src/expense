@@ -271,8 +271,11 @@ def WriteFile(savefile,lines):
 	writenewline = False
 	if os.path.isfile(savefile):
  		fout = codecs.open(savefile, "a+", "utf-8")
-		fout.seek(-1, os.SEEK_END)
-		test = fout.read(1)
+		if os.path.getsize(savefile)>0:
+			fout.seek(-1, os.SEEK_END)
+			test = fout.read(1)
+		else:
+			test = "\n"		
 		if test != "\n":
 			writenewline = True
 	else:
@@ -290,8 +293,11 @@ def AddToFile(savefile,line):
 	writenewline = False
 	if os.path.isfile(savefile):
  		fout = codecs.open(savefile, "a+", "utf-8")
-		fout.seek(-1, os.SEEK_END)
-		test = fout.read(1)
+		if os.path.getsize(savefile)>0:
+			fout.seek(-1, os.SEEK_END)
+			test = fout.read(1)
+		else:
+			test = "\n"
 		if test != "\n":
 			writenewline = True
 	else:
