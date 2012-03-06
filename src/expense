@@ -16,8 +16,10 @@ from UnicodeCSV import UnicodeWriter
 import csv
 
 import locale
-locale.setlocale(locale.LC_ALL, '' )
+locale.setlocale(locale.LC_ALL, '')
 
+if locale.getlocale()[0]==None:
+	locale.setlocale(locale.LC_ALL, 'en_US')
 
 def saveCSV(path,lines):
 	names = ['Date','Price','Project','Category','Note']
